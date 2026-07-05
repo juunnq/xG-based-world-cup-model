@@ -34,6 +34,19 @@ Cup is audited at match level from the public aggregate feed (see below).
    p = 0.117), and match-level residuals are *under*-dispersed relative to Poisson
    (ratio 0.62), consistent with xG double-counting rebound sequences.
 
+![The xG landscape](results/figures/xg_landscape_3d.png)
+
+*The xG landscape: scoring probability is essentially flat until the edge of the
+six-yard box, then goes vertical — most of the attacking half is statistical
+wilderness.*
+
+![The residual skyline](results/figures/residual_skyline_3d.png)
+
+*The residual skyline: bars rise where real goals beat the model's expectation.
+Both models share one anomaly (a long-range cell where 6 screamers beat ~1.3
+expected goals), but only StatsBomb's panel grows a tower in the byline zone —
+the tight-angle blind spot behind finding 3.*
+
 | | |
 |---|---|
 | ![Reliability curves](results/figures/reliability_all_models.png) | ![StatsBomb residual map](results/figures/residual_zmap_statsbomb_xg.png) |
@@ -106,6 +119,7 @@ python scripts/02_train_models.py      # tuning + OOF predictions + metrics
 python scripts/03_calibration.py       # reliability, Brier decomposition, isotonic
 python scripts/04_residual_maps.py     # z-maps, spatial chi-square, Moran's I, subgroups
 python scripts/05_wc2026_analysis.py   # 2026 match-level audit (--refresh for latest)
+python scripts/06_3d_visuals.py        # 3D xG landscape + residual skyline
 ```
 
 Deterministic given the data: seed, folds, grid and permutation counts live in
@@ -127,7 +141,8 @@ src/evaluate.py      bootstrap metric CIs, reliability, Brier decomposition, iso
 src/residuals.py     pitch binning, spatial χ², Moran's I, subgroup tests
 src/wc2026.py        2026 match-level calibration audit
 src/plots.py         reliability + pitch heatmap figures
-scripts/01..05       the pipeline, in order
+src/plots3d.py       3D xG landscape surface and residual skyline
+scripts/01..06       the pipeline, in order
 tests/               geometry and statistics unit tests (synthetic known answers)
 results/             tables (CSV) and figures (PNG) — committed
 data/                local cache — gitignored, rebuilt by scripts 01/05
