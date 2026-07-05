@@ -26,14 +26,7 @@ TOURNAMENTS = [
 WC2026_REPO_RAW = (
     "https://raw.githubusercontent.com/mominullptr/FIFA-World-Cup-2026-Dataset/main"
 )
-WC2026_FILES = [
-    "matches.csv",
-    "matches_detailed.csv",
-    "match_team_stats.csv",
-    "match_events.csv",
-    "teams.csv",
-    "tournament_stages.csv",
-]
+WC2026_FILES = ["matches_detailed.csv"]  # per-match scores + provider xG
 
 # StatsBomb pitch coordinates: x in [0, 120], y in [0, 80], attacking goal at x=120
 PITCH_LENGTH = 120.0
