@@ -1,0 +1,15 @@
+# Data cache (re-downloadable via scripts/01_build_dataset.py and 05_wc2026_analysis.py)
+data/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
